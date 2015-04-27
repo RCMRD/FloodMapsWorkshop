@@ -13,6 +13,7 @@
 #
 
 import numpy, sys, os, inspect, io
+from PIL import Image, ImageDraw
 import urllib
 import csv
 import json
@@ -96,7 +97,7 @@ def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	if force or not os.path.exists(geojson_filename):
 		#csv_to_geojson(csv_filename, geojson_filename, bbox)
 		txt_to_geojson(fileName, geojson_filename, bbox)
-		sys.exit(-1)
+		
 
 	if force or not os.path.exists(geojsongz_filename):
 		cmd = 'gzip < %s > %s' %( geojson_filename, geojsongz_filename)
@@ -114,16 +115,27 @@ def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	rasterYSize	= 250
 	
 	mapbox_image(centerlat, centerlon, zoom, rasterXSize, rasterYSize, osm_bg_image)
+
+		ullon, ullat, lrlon, lrlat = browseimage.bbox(centerlat, centerlon, zoom, rasterXSize, rasterYSize)
+	dx = (lrlon-ullon)/rasterXSize
+	dy = (ullat-lrlat)/rasterXSize
+
+	#print "org:", ullon, ullat, dx, dy
 	
-	ullon, ullat, lrlon, lrlat = browseimage.bbox(centerlat, centerlon, zoom, rasterXSize, rasterYSize)
-	print ullon, lrlat, lrlon, ullat
+	im 		= Image.open(osm_bg_image)
+	draw 	= ImageDraw.Draw(im)
+	for f in results['features']:
+		coords = f['geometry']['coordinates']
+		lon		= coords[0]
+		lat		= coords[1]
+		x		= int((lon-ullon)/dx)
+		y		= int((ullat-lat)/dx)
+		
+		#print lon, lat, x, y
+		draw.ellipse( [(x-1,y-1),(x+1,y+1)])
 	
-	url = "https://firms.modaps.eosdis.nasa.gov/wms/?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=fires24&width=400&height=250&BBOX="
-	url += str(ullon) + ","+ str(lrlat) + "," + str(lrlon) + "," + str(ullat)
+	im.save(tif_filename, "PNG")
 	
-	if 1 or force or not os.path.exists(tif_filename):
-		urllib.urlretrieve(url, tif_filename)
-		print "retrieved ", tif_filename
 	
 	# superimpose the suface water over map background
 	#if force or not os.path.isfile(sw_osm_image):	
