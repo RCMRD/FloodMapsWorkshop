@@ -88,7 +88,7 @@ def csv_to_geojson(csv_filename, geojson_filename, bbox):
 		
 	print "Done:", geojson_filename
 	
-def process_url( mydir, url, ymd, bbox, zoom, s3_bucket, s3_folder ):
+def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 
 	csv_filename		= os.path.join(os.path.join(mydir,  "modis_af." + ymd + '.csv'))
 	geojson_filename	= os.path.join(os.path.join(mydir,  "modis_af." + ymd + '.geojson'))
@@ -97,12 +97,10 @@ def process_url( mydir, url, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	osm_bg_image		= os.path.join(os.path.join(mydir,  "osm_bg_image.tif"))
 	thn_image			= os.path.join(os.path.join(mydir,  "modis_af." + ymd + '_thn.jpg'))
 	
-	if force or not os.path.exists(csv_filename):
-		urllib.urlretrieve(url, csv_filename)
-		
 	if force or not os.path.exists(geojson_filename):
-		csv_to_geojson(csv_filename, geojson_filename, bbox)
-		
+		#csv_to_geojson(csv_filename, geojson_filename, bbox)
+		txt_to_geojson(fileName, geojson_filename, bbox)
+
 	if force or not os.path.exists(geojsongz_filename):
 		cmd = 'gzip < %s > %s' %( geojson_filename, geojsongz_filename)
 		execute(cmd)
@@ -192,3 +190,4 @@ if __name__ == '__main__':
 		sys.exit(-1)
 	
 	#process_url(mydir, url_24hr, ymd, bbox, zoom, s3_bucket, s3_folder)
+	#process_file(mydir, fullName, )
