@@ -16,6 +16,7 @@ data/osm/*.osm
 data/osm/*.bz2
 data/radarsat2/
 data/modis/
+data/modis_af/
 data/eo1/
 data/dfo/
 data/palsar2/

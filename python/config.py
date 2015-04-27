@@ -38,7 +38,7 @@ regions		= {
 	'd04': {
 		'name':			"Namibia",
 		'bbox': 		[18, -21, 26, -17 ],
-		'bucket':		"ojo-d4",
+		'bucket':		"rcmrd-products",
 		'thn_zoom': 	6
 	},
 	'd05': {
