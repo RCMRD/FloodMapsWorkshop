@@ -177,7 +177,7 @@ var util 		= require('util'),
 			var date				= moment(year+"-"+jday)
 			var bucket				= app.config.regions[regionKey].bucket
 			
-			var s3host				= "https://s3.amazonaws.com/"+bucket +"/"+ this.options.subfolder+"/"+year+"/"+jday + "/"
+			var s3host				= "https://s3-"+process.env.AWS_REGION+".amazonaws.com/"+bucket +"/"+ this.options.subfolder+"/"+year+"/"+jday + "/"
 			var browse_img			= _.find(artifacts, function(el) { 
 											return el.key.indexOf("_thn.jpg") > 0 
 										}).key
@@ -526,7 +526,7 @@ var util 		= require('util'),
 		var id			= req.params['id']
 	
 		// https much slower than http so let's use http
-		var s3host		= "http://s3.amazonaws.com/"
+		var s3host		= "http://s3-"+process.env.AWS_REGION+".amazonaws.com/"
 		var s3fileName	= s3host + bucket+"/"+subfolder+"/" + year + "/" + doy + "/" + id
 
 		var tmp_dir 	= app.get("tmp_dir")
@@ -597,7 +597,7 @@ var util 		= require('util'),
 			var day		= date.date();
 			if( day < 10 ) day = "0"+day
 		
-			var s3host				= "https://s3.amazonaws.com/"+ bucket+"/"+slf.options.subfolder+"/" + year + "/" + jday + "/"
+			var s3host				= "https://s3-"+process.env.AWS_REGION+".amazonaws.com/"+ bucket+"/"+slf.options.subfolder+"/" + year + "/" + jday + "/"
 
 			// local host cache for S3
 			var s3proxy				= host+'/products/s3/'+regionKey+"/"+ slf.options.subfolder+"/"+year+"/"+jday + "/"
