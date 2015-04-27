@@ -47,7 +47,7 @@
             "min_zoom": 6,
 			      "max_zoom":	18,
             "map_id":   "cappelaere.map-q4hdwmh3",
-            "bucket":   "ojo-d4",
+            "bucket":   "rcmrd-products",
             "ojotiler": "http://ojo-tiler.herokuapp.com",
             "ojotiler-dev": "http://localhost:8888"
         },
@@ -58,7 +58,7 @@
             "min_zoom":     7,
             "max_zoom":	    18,
             "map_id":       "cappelaere.map-q4hdwmh3",
-            "bucket":       "ojo-d5",
+            "bucket":       "rcmrd-products",
             "ojotiler":     "http://ojo-tiler.herokuapp.com",
             "ojotiler-dev": "http://localhost:8888",
             "susmap":       "cappelaere.3uf4a15n"
