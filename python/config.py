@@ -43,7 +43,7 @@ regions		= {
 	},
 	'd05': {
 		'name':			"Malawi",
-		'bbox': 		[-74.94, 16.35, -64.98, 21.42 ],
+		'bbox': 		[32.6690, -17.1295, 35.9204, -9.3647 ],
 		'bucket':		"rcmrd-products",
 		'thn_zoom': 	6
 	},
