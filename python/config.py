@@ -44,7 +44,7 @@ regions		= {
 	'd05': {
 		'name':			"Malawi",
 		'bbox': 		[-74.94, 16.35, -64.98, 21.42 ],
-		'bucket':		"ojo-d5",
+		'bucket':		"rcmrd-products",
 		'thn_zoom': 	6
 	},
 	'd06': {
