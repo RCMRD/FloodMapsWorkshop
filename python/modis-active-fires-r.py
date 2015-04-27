@@ -48,37 +48,33 @@ def inbbox(bbox, lat, lon):
 	return 0
 
 
-def csv_to_geojson(csv_filename, geojson_filename, bbox):
-	f 		= open( csv_filename, 'r' )
-	reader 	= csv.DictReader( f, fieldnames = ( 'latitude','longitude','brightness','scan','track','acq_date','acq_time','satellite','confidence','version','bright_t31','frp' ) )
+def txt_to_geojson(filename, geojson_filename, bbox):
+	f 		= open( filename, 'r' )
+	#reader 	= csv.DictReader( f, fieldnames = ( 'latitude','longitude','brightness','scan','track','acq_date','acq_time','satellite','confidence','version','bright_t31','frp' ) )
 	
 	features = []
 	index 	 = 0
 
-	for row in reader:
-		# skip first row
-		if index > 0:
-			dt 	= row['acq_time']
-			sat = row['satellite']
-			if sat == 'T':
-				sat = 'Terra'
-			if sat == 'A':
-				sat = 'Aqua'
-			properties = {
-				'brightness': row['brightness'],
-				'acq_date': row['acq_date']+"T"+dt[1:3]+":"+dt[3:]+"Z",
-				'satellite': sat,
-				'confidence': row['confidence']
-			}
-			latitude 	= float(row['latitude']) 
-			longitude 	= float(row['longitude'])
-			coordinates = [longitude, latitude]
-			
-			if inbbox(bbox, latitude, longitude):
-				feature = {"type": "Feature", "geometry": { "type": "Point", "coordinates": coordinates}, "properties": properties}
-				features.append(feature)
-				
+	for line in f:
+		arr = line.split(",")
+		row = {}
+		row['latitude']		= arr[0]
+		row['longitude']	= arr[1]
+		row['brightness']	= arr[2]
+		
+		properties = {
+			'brightness': row['brightness']
+		}
+		latitude 	= float(row['latitude'])
+		longitude	= float(row['longitude'])
+		coordinates	= [longitude, latitude]
+
+		if 1 or inbbox(bbox, latitude, longitude):
+			feature = {"type": "Feature", "geometry": {"type": "Point", "coordinates": coordinates}, "properties": properties}
+			features.append(feature)
+
 		index += 1
+	
 			
 	geojson = {"type": "FeatureCollection", "features": features}
 	print "features found:", len(features)
@@ -100,6 +96,7 @@ def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	if force or not os.path.exists(geojson_filename):
 		#csv_to_geojson(csv_filename, geojson_filename, bbox)
 		txt_to_geojson(fileName, geojson_filename, bbox)
+		sys.exit(-1)
 
 	if force or not os.path.exists(geojsongz_filename):
 		cmd = 'gzip < %s > %s' %( geojson_filename, geojsongz_filename)
@@ -189,5 +186,5 @@ if __name__ == '__main__':
 		print "file not found", fullName
 		sys.exit(-1)
 	
-	#process_url(mydir, url_24hr, ymd, bbox, zoom, s3_bucket, s3_folder)
-	#process_file(mydir, fullName, )
+	process_file(mydir, fullName, ymd, bbox, zoom, s3_bucket, s3_folder)
+	
