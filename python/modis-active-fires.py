@@ -35,7 +35,7 @@ active_fires_urls = {
 	"d04": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv",
 	"d05": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv",
 	"d06": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/South_Asia_24h.csv",
-	"d07": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv"
+	"d07": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Northern_and_Central_Africa_24h.csv"
 }
 
 def execute( cmd ):
