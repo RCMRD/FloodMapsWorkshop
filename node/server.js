@@ -78,7 +78,7 @@ var express 		= require('express'),
 		"chirps_prelim_pentad":		query_chirps_5,
 		"chirps_prelim_dekad":		query_chirps_10,
 		"chirps_prelim_monthly":	query_chirps_30,
-		"modis_af_rcmrd":			query_af_rcmrd,
+		"modis_af_rcmrd":			query_af_rcmrd
 	}
 		
 	var app 					= module.exports = express();

@@ -86,7 +86,7 @@
             "ojotiler":     "http://ojo-tiler.herokuapp.com",
             "ojotiler-dev": "http://localhost:8888",
             "susmap":       "cappelaere.3uf4a15n"
-        },
+        }
     },
 	
     "admins":   		[ "pat@cappelaere.com", "cappelaere@gmail.com" ],
