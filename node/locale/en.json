@@ -60,7 +60,8 @@
         "noaa": "NOAA",
         "gsfc": "NASA GSFC",
         "umd": "University of Maryland Geographic Department",
-        "chirps": "CHIRPS"
+        "chirps": "CHIRPS",
+        "rcmrd": "RCMRD"
     },
     "sensors": {
         "sar": "SAR",

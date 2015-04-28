@@ -39,27 +39,27 @@ var util 		= require('util'),
 	
     options.style = function(req) {
 		var json = {
-    		{ frost } == levels[0] : {
+    		"{frost} == 0" : {
     			color: colors[0],
     			weight: 1,
     		},
-    		{ frost } == levels[1] : {
+    		"{frost} == 1" : {
     			color: colors[1],
     			weight: 1,
     		},
-    		{ frost } == levels[2] : {
+    		"{frost} == 2" : {
     			color: colors[2],
     			weight: 1,
     		},
-    		{ frost } == levels[3] : {
+    		"{frost} == 3" : {
     			color: colors[3],
     			weight: 1,
     		},
-    		{ frost } == levels[4] : {
+    		"{frost} == 4" : {
     			color: colors[4],
     			weight: 1,
     		},
-    		{ frost } == levels[5] : {
+    		"{frost} == 5" : {
     			color: colors[5],
     			weight: 1,
     		},
@@ -117,11 +117,12 @@ var util 		= require('util'),
 		html += "  <div class='legend-title'>"+ req.gettext("legend.frost.title")+"</div>"
 		html += "  <div class='legend-scale'>"
 		html += "    <ul class='legend-labels'>"
-		html += "	   <li><span style='background:"+colors[1]+"></span>&nbsp;"+ req.gettext("legend.frost.legend.1") +"</li>"
-		html += "	   <li><span style='background:"+colors[2]+"></span>&nbsp;"+ req.gettext("legend.frost.legend.2") +"</li>"
-		html += "	   <li><span style='background:"+colors[3]+"></span>&nbsp;"+ req.gettext("legend.frost.legend.3") +"</li>"
-		html += "	   <li><span style='background:"+colors[4]+"></span>&nbsp;"+ req.gettext("legend.frost.legend.4") +"</li>"
-		html += "	   <li><span style='background:"+colors[5]+"></span>&nbsp;"+ req.gettext("legend.frost.legend.5") +"</li>"
+		html += "	   <li><span style='background:"+colors[0]+"'></span>&nbsp;"+ req.gettext("legend.frost.legend.no_data") +"</li>"
+		html += "	   <li><span style='background:"+colors[1]+"'></span>&nbsp;"+ req.gettext("legend.frost.legend.no_frost") +"</li>"
+		html += "	   <li><span style='background:"+colors[2]+"'></span>&nbsp;"+ req.gettext("legend.frost.legend.minor_frost") +"</li>"
+		html += "	   <li><span style='background:"+colors[3]+"'></span>&nbsp;"+ req.gettext("legend.frost.legend.moderate_frost") +"</li>"
+		html += "	   <li><span style='background:"+colors[4]+"'></span>&nbsp;"+ req.gettext("legend.frost.legend.severe_frost") +"</li>"
+		html += "	   <li><span style='background:"+colors[5]+"'></span>&nbsp;"+ req.gettext("legend.frost.legend.very_severe_frost") +"</li>"
         html += "    </ul>"
 		html += "  </div>"
 		html += "<div class='legend-source'>"+ req.gettext("legend.frost.source.label")+": <a href='"+ source_url+"'>"+ req.gettext("legend.frost.source.source")+"</a>"

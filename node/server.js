@@ -29,7 +29,7 @@ var express 		= require('express'),
 
 	// var	products_digiglobe	= require('./lib/products_digiglobe');
 	
-	var	products_frost		= require('./lib/products_frost');
+	
 	var	products_radarsat2	= require('./lib/products_radarsat2');
 	var	products_l8			= require('./lib/products_l8');
 	var	products_eo1_ali	= require('./lib/products_eo1_ali');
@@ -38,7 +38,7 @@ var express 		= require('express'),
 	
 	var mapinfo_dfo			= require('./lib/mapinfo_dfo');
 	var mapinfo_eo1_ali		= require('./lib/mapinfo_eo1_ali');
-	var mapinfo_frost		= require('./lib/mapinfo_frost');
+	
 	var mapinfo_l8			= require('./lib/mapinfo_landsat8');
 	var mapinfo_modis		= require('./lib/mapinfo_modis');
 	var mapinfo_radarsat2	= require('./lib/mapinfo_radarsat2');
@@ -61,6 +61,7 @@ var express 		= require('express'),
 	var	query_chirps_10			= require('./lib/query_chirps_10').query;
 	var	query_chirps_5			= require('./lib/query_chirps_5').query;
 	var	query_af_rcmrd			= require('./lib/query_af_rcmrd').query;
+	var	query_frost				= require('./lib/query_frost').query;
 
 	var s3_products = {
 		"ef5": 						query_ef5,
@@ -78,7 +79,8 @@ var express 		= require('express'),
 		"chirps_prelim_pentad":		query_chirps_5,
 		"chirps_prelim_dekad":		query_chirps_10,
 		"chirps_prelim_monthly":	query_chirps_30,
-		"modis_af_rcmrd":			query_af_rcmrd
+		"modis_af_rcmrd":			query_af_rcmrd,
+		"frost":				query_frost
 	}
 		
 	var app 					= module.exports = express();
@@ -257,11 +259,6 @@ app.get('/products/radarsat2/:scene/:id',			products_radarsat2.product);
 //app.get('/products/digiglobe/:scene/:id',			products_digiglobe.product);
 //app.get('/products/digiglobe/:scene',				products_digiglobe.process);
 
-app.get('/products/frost/browse/:year/:doy',		products_frost.browse);
-app.get('/products/frost/map/:year/:doy',			products_frost.map);
-app.get('/products/frost/query/:year/:doy',			products_frost.query);
-app.get('/products/frost/:year/:doy/:id',			products_frost.product);
-
 //app.options('/products/opensearch',					function(req, res) {
 //	console.log("OPTIONS on opensearch");
 //	setOptionsHeaders(req, res)
@@ -287,11 +284,6 @@ app.get('/mapinfo/l8',								mapinfo_l8.landsat8);
 app.get('/mapinfo/l8/style',						mapinfo_l8.landsat8_style);
 app.get('/mapinfo/l8/legend',						mapinfo_l8.landsat8_legend);
 app.get('/mapinfo/l8/credits',						mapinfo_l8.landsat8_credits);
-
-app.get('/mapinfo/frost',							mapinfo_frost.frost);
-app.get('/mapinfo/frost/style',						mapinfo_frost.frost_style);
-app.get('/mapinfo/frost/legend',					mapinfo_frost.frost_legend);
-app.get('/mapinfo/frost/credits',					mapinfo_frost.frost_credits);
 
 app.get('/mapinfo/radarsat2',						mapinfo_radarsat2.radarsat2);
 app.get('/mapinfo/radarsat2/style',					mapinfo_radarsat2.radarsat2_style);
