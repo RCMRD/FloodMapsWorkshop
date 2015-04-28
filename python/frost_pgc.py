@@ -385,10 +385,10 @@ if __name__ == '__main__':
 	bbox		= region['bbox']
 	zoom		= region['thn_zoom']
 		
-	#RemoveEmptyFrostFiles(outPtDir)
-	#SubsetOutputFiles()
-	#ComposeSubsets(subsetDir, srcPath, ymd)
-	#SmoothIt(srcPath, ymd)
-	#CreateLevels(srcPath, ymd)
+	RemoveEmptyFrostFiles(outPtDir)
+	SubsetOutputFiles()
+	ComposeSubsets(subsetDir, srcPath, ymd)
+	SmoothIt(srcPath, ymd)
+	CreateLevels(srcPath, ymd)
 	MergeLevels(srcPath, ymd, bbox, zoom)
 		

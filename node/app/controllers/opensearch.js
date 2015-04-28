@@ -33,7 +33,8 @@ var fs  		= require('fs'),
 	query_chirps_30				= require("../../lib/query_chirps_30").query,
 	query_chirps_10				= require("../../lib/query_chirps_10").query,
 	query_chirps_5				= require("../../lib/query_chirps_5").query,
-	query_af_rcmrd				= require("../../lib/query_af_rcmrd").query
+	query_af_rcmrd				= require("../../lib/query_af_rcmrd").query,
+	query_frost					= require("../../lib/query_frost").query
 	;
 	
 	// Queries for all those sources
@@ -54,7 +55,7 @@ var fs  		= require('fs'),
 		"noaa": 				[query_vhi.QueryAll.bind(query_vhi)],
 		"viirs": 				[query_vchloa.QueryAll.bind(query_vchloa)],
 		"chirps": 				[query_chirps_30.QueryAll.bind(query_chirps_30), query_chirps_10.QueryAll.bind(query_chirps_10),query_chirps_5.QueryAll.bind(query_chirps_5)],
-		"rcmrd": 				[query_af_rcmrd.QueryAll.bind(query_af_rcmrd)]
+		"rcmrd": 				[query_af_rcmrd.QueryAll.bind(query_af_rcmrd), query_frost.QueryAll.bind(query_frost)]
 	}
     
 	function ValidateBBox( bbox ) {
