@@ -202,6 +202,15 @@
             },
             "legend": "Active Fires"
         },
+        "modis_af_rcmrd": {
+            "title": "MODIS Active Fires-RCMRD",
+            "credits": "NASA GSFC",
+            "source": {
+                "label": "Source",
+                "source": "NASA"
+            },
+            "legend": "Active Fires RCMRD"
+        },
         "quakes": {
             "title": "USGS Earthquakes",
             "credits": "USGS",

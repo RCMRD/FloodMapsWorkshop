@@ -194,9 +194,11 @@ var util 		= require('util'),
 							return el.key.indexOf(fmt) > 0
 						})
 						
+						if( obj == undefined ) return
+							
 						var fkey = obj.key
 						var size = obj.size
-						//console.log(fkey, size)
+						console.log(fkey, size)
 						
 						var download_file = {
 							"@type": 		"as:HttpRequest",
@@ -213,7 +215,7 @@ var util 		= require('util'),
 						}
 						downloads.push(download_file)
 					} catch(e) {
-						logger.error("could not find size of", fkey)
+						logger.error("could not find size of" + e)
 					}
 				}
 			}
