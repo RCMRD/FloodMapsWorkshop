@@ -35,7 +35,8 @@ active_fires_urls = {
 	"d03": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Central_America_24h.csv",
 	"d04": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv",
 	"d05": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv",
-	"d06": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/South_Asia_24h.csv"
+	"d06": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/South_Asia_24h.csv",
+	"d07": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Northern_and_Central_Africa_24h.csv"
 }
 
 def execute( cmd ):
@@ -84,6 +85,7 @@ def txt_to_geojson(filename, geojson_filename, bbox):
 		f.write(unicode(json.dumps(geojson, ensure_ascii=False)))
 		
 	print "Done:", geojson_filename
+	return geojson
 	
 def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 
@@ -94,9 +96,10 @@ def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	osm_bg_image		= os.path.join(os.path.join(mydir,  "osm_bg_image.tif"))
 	thn_image			= os.path.join(os.path.join(mydir,  "modis_af." + ymd + '_thn.jpg'))
 	
-	if force or not os.path.exists(geojson_filename):
+	#if force or not os.path.exists(geojson_filename):
 		#csv_to_geojson(csv_filename, geojson_filename, bbox)
-		txt_to_geojson(fileName, geojson_filename, bbox)
+	results = txt_to_geojson(fileName, geojson_filename, bbox)
+		
 		
 
 	if force or not os.path.exists(geojsongz_filename):
@@ -116,7 +119,7 @@ def process_file( mydir, fileName, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	
 	mapbox_image(centerlat, centerlon, zoom, rasterXSize, rasterYSize, osm_bg_image)
 
-		ullon, ullat, lrlon, lrlat = browseimage.bbox(centerlat, centerlon, zoom, rasterXSize, rasterYSize)
+	ullon, ullat, lrlon, lrlat = browseimage.bbox(centerlat, centerlon, zoom, rasterXSize, rasterYSize)
 	dx = (lrlon-ullon)/rasterXSize
 	dy = (ullat-lrlat)/rasterXSize
 
