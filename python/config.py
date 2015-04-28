@@ -52,6 +52,12 @@ regions		= {
 		'bbox': 		[60, 20, 80, 40 ],
 		'bucket':		"ojo-d6",
 		'thn_zoom': 	6
+	},
+	'd07': {
+		'name':			"Eafrica",
+		'bbox': 		[21.77, -12.27, 51.09, 23.95 ],
+		'bucket':		"rcmrd-ea",
+		'thn_zoom': 	6
 	}
 }
 	
