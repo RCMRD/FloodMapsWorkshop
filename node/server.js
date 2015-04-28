@@ -60,6 +60,7 @@ var express 		= require('express'),
 	var	query_chirps_30			= require('./lib/query_chirps_30').query;
 	var	query_chirps_10			= require('./lib/query_chirps_10').query;
 	var	query_chirps_5			= require('./lib/query_chirps_5').query;
+	var	query_af_rcmrd			= require('./lib/query_af_rcmrd').query;
 
 	var s3_products = {
 		"ef5": 						query_ef5,
@@ -76,7 +77,8 @@ var express 		= require('express'),
 		"burned_areas":  	    	query_ba,
 		"chirps_prelim_pentad":		query_chirps_5,
 		"chirps_prelim_dekad":		query_chirps_10,
-		"chirps_prelim_monthly":	query_chirps_30
+		"chirps_prelim_monthly":	query_chirps_30,
+		"modis_af_rcmrd":			query_af_rcmrd,
 	}
 		
 	var app 					= module.exports = express();
