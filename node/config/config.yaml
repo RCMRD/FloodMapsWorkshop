@@ -190,7 +190,7 @@
 				"selected":   false
 			},
             {
-                "source":       "modis_rcmrd",
+                "source":       "rcmrd",
                 "href":         "/opensearch",
                 "checked":      false,
                 "selected":   false
