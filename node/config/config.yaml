@@ -82,7 +82,7 @@
             "min_zoom":     7,
             "max_zoom":     18,
             "map_id":       "cappelaere.map-q4hdwmh3",
-            "bucket":       "rcmrd-products",
+            "bucket":       "rcmrd-ea",
             "ojotiler":     "http://ojo-tiler.herokuapp.com",
             "ojotiler-dev": "http://localhost:8888",
             "susmap":       "cappelaere.3uf4a15n"
