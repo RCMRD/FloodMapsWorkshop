@@ -132,13 +132,13 @@
           	{
         		"source": 		"landscan",
         		"href": 		"/opensearch",
-        		"checked":  	true,
-				"selected":   true
+        		"checked":  	false,
+				"selected":   false
         	},
           	{
         		"source": 		"l8",
         		"href": 		"/opensearch",
-        		"checked":  	true,
+        		"checked":  	false,
 				"selected":   false
         	},
 			{
@@ -193,7 +193,7 @@
                 "source":       "rcmrd",
                 "href":         "/opensearch",
                 "checked":      false,
-                "selected":   false
+                "selected":   true
             }
  	],
 	"valid_modis_tiles":             [

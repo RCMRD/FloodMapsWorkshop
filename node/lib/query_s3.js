@@ -309,7 +309,7 @@ var util 		= require('util'),
 				"displayName": 	id,
 				"image": 		[ 
 									{
-										"url": s3host+browse_img,
+										"url": s3proxy+browse_img,
 										"mediaType": "image/png",
 										"rel": "browse"
 									}
