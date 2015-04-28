@@ -54,6 +54,8 @@ def get_latest_mcd45_file(mydir, regionName, year):
 		path		= "Collection51/TIFF/Win12/%s"%(year)		# 
 	if regionName == 'd06':
 		path		= "Collection51/TIFF/Win18/%s"%(year)		# 
+	if regionName == 'd07':
+		path 		= "Collection51/TIFF/Win11/%s"%(year)
 		
 	print("cwd to "+path)
 	ftp.cwd(path)
