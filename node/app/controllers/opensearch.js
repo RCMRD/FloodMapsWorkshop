@@ -162,7 +162,7 @@ var fs  		= require('fs'),
 module.exports = {
 	classic: function(req, res) {
 		var host    = req.protocol+"://"+req.headers.host
-		var region  = app.config.regions.d04
+		var region  = app.config.regions.d07
 		var user    = req.session.user
         
 		region.zoom = 6
