@@ -237,6 +237,7 @@ def CreateLevels(srcPath, ymd):
 	if not os.path.exists(geojsonDir):            
 		os.makedirs(geojsonDir)
 	
+	compositeFileName	= os.path.join(srcPath, "Frost."+ymd+".tif")
 	smoothedFileName	= os.path.join(srcPath, "Smoothed_Frost."+ymd+".tif")
 	
 	level1FileName		= os.path.join(levelsDir, "Level_1_Frost."+ymd+".tif")
@@ -248,7 +249,10 @@ def CreateLevels(srcPath, ymd):
 	topojsonFileName	= os.path.join(srcPath, "Smoothed_Frost."+ymd+".topojson")
 	
 	driver 				= gdal.GetDriverByName( "GTiff" )
-	src_ds 				= gdal.Open( smoothedFileName )
+	
+	#src_ds 			= gdal.Open( smoothedFileName )
+	src_ds 				= gdal.Open( compositeFileName )
+	
 	projection  		= src_ds.GetProjection()
 	geotransform		= src_ds.GetGeoTransform()
 	band				= src_ds.GetRasterBand(1)
@@ -283,7 +287,8 @@ def CreateLevels(srcPath, ymd):
 	CreateTopojsonFile(srcPath, level5FileName, src_ds, projection, geotransform, ct, data, pres, xorg, ymax, 5 )
 
 def MergeLevels(srcPath, ymd, bbox, zoom):
-
+	global force, verbose
+	
 	geojsonDir				= os.path.join(srcPath,"geojson")
 	merge_filename			= os.path.join(srcPath,"frost_merged.geojson")
 	topojson_filename		= os.path.join(srcPath,"frost.%s.topojson"%ymd)
@@ -292,6 +297,7 @@ def MergeLevels(srcPath, ymd, bbox, zoom):
 	browse_filename 		= os.path.join(srcPath, "frost.%s_browse.tif" % ymd)
 	small_browse_filename 	= os.path.join(srcPath, "frost.%s_small_browse.tif" % ymd)
 	smoothedFileName		= os.path.join(srcPath, "Smoothed_Frost."+ymd+".tif")
+	compositeFileName		= os.path.join(srcPath, "Frost."+ymd+".tif")
 	
 	if force or not os.path.exists(merge_filename):
 		jsonDict = dict(type='FeatureCollection', features=[])
@@ -321,15 +327,15 @@ def MergeLevels(srcPath, ymd, bbox, zoom):
 		execute(cmd)
 	
 	if force or not os.path.exists(sw_osm_image):
-		ds 			= gdal.Open( smoothedFileName )
+		#ds 		= gdal.Open( smoothedFileName )
+		ds 			= gdal.Open( compositeFileName )
 		levels		= [5,4,3,2,1]
-		hexColors	= ["#CC00CC", "#FF99CC", "#FF0000", "#FF9A00", "#00FF00"]
+		hexColors	= ["#00FF00", "#FF9A00", "#FF0000", "#FF99CC", "#CC00CC"]
 		
 		MakeBrowseImage(ds, browse_filename, small_browse_filename, osm_bg_image, sw_osm_image, levels, hexColors, force, verbose, zoom)
 		ds = None
 		
 	file_list = [ sw_osm_image, topojson_filename, topojson_filename+".gz" ]
-	
 	CopyToS3( s3_bucket, s3_folder, file_list, force, verbose )
 	
 # python frost_pgc.py --region d04 -f -v
@@ -341,7 +347,7 @@ if __name__ == '__main__':
 	apg_input.add_argument("-f", "--force", 	action='store_true', help="forces new product to be generated")
 	apg_input.add_argument("-v", "--verbose", 	action='store_true', help="Verbose Flag")
 	apg_input.add_argument("-r", "--region", 	help="Region")
-	apg_input.add_argument("-d", "--date", 	help="Date")
+	apg_input.add_argument("-d", "--date", 		help="Date")
 	
 	options 	= parser.parse_args()
 	force		= options.force
@@ -388,7 +394,7 @@ if __name__ == '__main__':
 	RemoveEmptyFrostFiles(outPtDir)
 	SubsetOutputFiles()
 	ComposeSubsets(subsetDir, srcPath, ymd)
-	SmoothIt(srcPath, ymd)
+	# SmoothIt(srcPath, ymd)
 	CreateLevels(srcPath, ymd)
 	MergeLevels(srcPath, ymd, bbox, zoom)
 		
