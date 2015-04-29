@@ -1,2 +1,102 @@
 Ubuntu 14.04 Installation Notes - Arusha Workshop 
 
+# You will need sudo access to the Machine (admin password)
+
+# Check if you have git. If not Install git 
+$ sudo apt-get install git
+$ git --version
+git version 1.9.1
+
+# I recommend SublimeText/Geditor as the editor of choice on Ubuntu 
+# any other ubuntu/linux/commandline editor is suitable too
+
+
+# Check if you have python 2.6 or 2.7 available
+# if not:
+$ sudo apt-get install python2.7
+
+$ sudo apt-get install build-essential python-all-dev
+
+$ wget http://download.osgeo.org/gdal/1.11.0/gdal-1.11.0.tar.gz
+$ tar xvfz gdal-1.11.0.tar.gz
+$ cd gdal-1.11.0
+
+$ ./configure --with-python
+$ make
+$ sudo make install
+
+# Check GDAL
+$ gdalinfo --version
+GDAL 1.11.0, released 2014/04/16
+
+$ python
+>>from ogr import osr
+
+# We may also check that you can read a netCDF file with gdalinfo
+$ gdalinfo sst.nc
+
+# Install potrace
+$ sudo apt-get install potrace
+
+# Install ImageMagick
+$ wget http://www.imagemagick.org/download/ImageMagick.tar.gz
+$ tar -xvzf ImageMagick.tar.gz
+$ cd ImageMagick-6.9.1 
+$ ./configure -with-libtiff
+$ make
+$ sudo make install
+
+$ composite --version
+Version: ImageMagick 6.8.8-9 Q16 x86_64 2014-04-23 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
+Features: DPC Modules
+Delegates: bzlib freetype jng jpeg ltdl png tiff xml zlib
+
+# You should have pip available to install python libraries.  If not, 
+$ sudo easy_install pip
+
+#Install various python libraries
+$ sudo pip install numpy
+$ sudo pip install scipy
+$ sudo pip install boto
+$ sudo pip install argparse
+$ sudo pip install python-dateutil
+$ sudo pip install Pillow
+
+# Install Node
+$ sudo apt-get install nodejs npm
+$ sudo npm install -g topojson
+$ topojson --version
+1.6.19
+
+# Go to your development directory
+# IF you have not done so already
+$ git clone https://github.com/vightel/FloodMapsWorkshop.git
+$ cd FloodMapsWorkshop
+$ cp envs.copy.sh envs.sh
+# Edit and customize envs.sh
+
+$ source envs.sh
+$ cd node
+$ npm install
+$ node server.js
+
+# Note you can also use nodemon to start node and monitor any file change
+$ sudo npm install -g nodemon
+$ nodemon server.js
+
+
+# Note you can also use forever to ensure that server runs continously
+$ sudo npm install -g forever
+$ forever start server.js
+
+# Notes
+# For more advanced processing, you may need additional python libraries and mapnik
+# Install cairo --without-x --without-glib
+# Install py2cairo
+# Install mapnik --with-gdal --with-postgresql --with-cairo
+$ sudo apt-get install -y python-software-properties
+$ sudo add-apt-repository ppa:mapnik/v2.2.0
+$ sudo apt-get update
+$ sudo apt-get install libmapnik libmapnik-dev mapnik-utils python-mapnik
+
