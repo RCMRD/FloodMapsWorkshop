@@ -61,7 +61,8 @@
         "gsfc": "NASA GSFC",
         "umd": "University of Maryland Geographic Department",
         "chirps": "CHIRPS",
-        "rcmrd": "RCMRD"
+        "rcmrd": "RCMRD",
+        "icimod": "ICIMOD"
     },
     "sensors": {
         "sar": "SAR",
@@ -116,7 +117,7 @@
         "precipitation_nowcast": "Daily Precip Accumulation",
         "precipitation_forecast": "Daily Precip Forecast",
         "rgb_composite": "RGB Composite",
-        "snow_cover": "Snow Cover",
+        "snow_cover": "Snow cover",
         "snow_water_equivalent": "Snow Water Equivalent",
         "stream_flow": "Stream Flow",
         "soil_moisture": "Soil Moisture",
@@ -186,7 +187,7 @@
             "legend": "Surface Water"
         },
         "burned_areas": {
-            "title": "Pat's Burned Areas",
+            "title": "Burned Areas",
             "credits": "University of Maryland",
             "source": {
                 "label": "Source",
@@ -202,15 +203,6 @@
                 "source": "NASA"
             },
             "legend": "Active Fires"
-        },
-        "modis_af_rcmrd": {
-            "title": "MODIS Active Fires-RCMRD",
-            "credits": "NASA GSFC",
-            "source": {
-                "label": "Source",
-                "source": "NASA"
-            },
-            "legend": "Active Fires RCMRD"
         },
         "quakes": {
             "title": "USGS Earthquakes",

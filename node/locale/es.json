@@ -44,7 +44,6 @@
         "location_nowcast": "Pronóstico de Inundaciones",
         "population_count": "Population Count",
         "rgb_composite": "RGB composición",
-        "snow_cover": "Cubierta de Nieve",
         "snow_water_equivalent": "Nieve Equivalente Agua",
         "stream_flow": "Flujo de corriente",
         "soil_moisture": "Humedad del Suelo",
@@ -52,7 +51,8 @@
         "drought": "Sequía",
         "vhi": "Índice de Vegetación Helath",
         "algal_bloom": "Floraciones de Algas",
-        "burned_areas": "Zona Quemada"
+        "burned_areas": "Zona Quemada",
+        "snow_cover": "Capa de Nieve"
     },
     "query": {
         "query_title": "Consulta",
@@ -723,7 +723,9 @@
         "noaa": "NOAA",
         "gsfc": "NASA GSFC",
         "umd": "Universidad de Maryland Departamento Geográfico",
-        "chirps": "CHIRPS"
+        "chirps": "CHIRPS",
+        "rcmrd": "RCMRD",
+        "icimod": "ICIMOD"
     },
     "sensors": {
         "sar": "SAR",
@@ -817,11 +819,11 @@
             "legend": "Agua Superficial"
         },
         "burned_areas": {
-            "title": "MODIS Zona Quemada",
-            "credits": "NASA GSFC",
+            "title": "Zonas Quemadas",
+            "credits": "Universidad de Maryland",
             "source": {
                 "label": "Origen",
-                "source": "NASA"
+                "source": "UMD"
             },
             "legend": "Zona Quemada"
         },

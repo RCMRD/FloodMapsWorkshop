@@ -36,15 +36,22 @@
         "query_layer": "जिज्ञासा पत्र",
         "active_fires": "सक्रिय आगलागी",
         "burn_scar": "जलेको निशान",
+        "precip_1": "1-दिन वर्षा",
+        "precip_5": "५-दिने वर्षा",
+        "precip_10": "10-दिन वर्षा",
+        "precip_30": "30-दिने वर्षा",
         "frost": "तुषारो",
         "location_nowcast": "स्थानको पूर्वानुमान",
         "population_count": "जनसंख्या गणना",
-        "snow_cover": "हिउँले ढाकेको",
+        "rgb_composite": "RGB Composite",
         "snow_water_equivalent": "हिम पानी बराबरको",
+        "stream_flow": "Stream Flow",
         "soil_moisture": "माटो चिस्यान",
         "quakes": "भुकम्पहरु",
         "drought": "खडेरी",
-        "vhi": "वनस्पती स्वास्थ्य सूचकांक"
+        "vhi": "वनस्पती स्वास्थ्य सूचकांक",
+        "algal_bloom": "Algal Bloom",
+        "burned_areas": "जलाइएको क्षेत्र"
     },
     "query": {
         "query_title": "जिज्ञासा",
@@ -79,6 +86,7 @@
             "headers": {
                 "date": "मिति",
                 "id": "आईडी",
+                "coordinates": "समन्वय",
                 "trigger": "ट्रिगर",
                 "fatalities": "विपती",
                 "storm_name": "आँधीको नाम ",
@@ -88,9 +96,12 @@
         }
     },
     "map": {
+        "topo_map": "टोपो म्याप",
+        "grey_map": "ग्रएे म्याप",
         "legend": "संकेत",
         "credits": "क्रेडिट",
         "flood_catalog": "विश्वव्यापी बाढीको सूचक",
+        "flood_marker": "बाढी मार्कर",
         "flood_polygon": " बाढीको बहुभुज ",
         "drag_click_marker_comment": "मानचित्रमा क्लिक वा तपाईंको स्थान सेट गर्न मार्कर तान्नुहोस्"
     },
@@ -101,7 +112,8 @@
         "all_info": "सबै जानकारी",
         "properties": {
             "user_id": {
-                "label": "प्रयोगकर्ताको  आईडी"
+                "label": "प्रयोगकर्ताको  आईडी",
+                "info": "मानक नम्बर "
             },
             "id": {
                 "label": "आईडी",
@@ -121,6 +133,9 @@
             },
             "hazard_type": {
                 "label": "खतराको किसिम"
+            },
+            "coordinates": {
+                "label": "समन्वय"
             },
             "trigger": {
                 "label": "ट्रिगर"
@@ -157,14 +172,32 @@
                     "landslide": {
                         "label": "पहिरो"
                     },
+                    "mudslide": {
+                        "label": "माटोको भुस्खलन"
+                    },
+                    "debris_flow": {
+                        "label": "देब्रिजफ्लोव"
+                    },
+                    "rock_fall": {
+                        "label": "चट्टान खस्नु"
+                    },
+                    "Earthflow": {
+                        "label": "अर्थफ्लो"
+                    },
                     "snow_avalanche": {
                         "label": " हिमपहिरो"
+                    },
+                    "lahar": {
+                        "label": "लहर"
                     },
                     "complex": {
                         "label": "जटिल"
                     },
                     "riverbank_collapse": {
                         "label": "नदीको किनारा"
+                    },
+                    "creep": {
+                        "label": "घिस्रीनु"
                     }
                 }
             },
@@ -187,6 +220,9 @@
             },
             "location_description": {
                 "label": "स्थानको बर्णन "
+            },
+            "location_accuracy": {
+                "label": "स्थानको सटीकता"
             },
             "cat_src": {
                 "label": "सूचकको स्रोत"
@@ -286,7 +322,7 @@
     },
     "hazards": {
         "landslide": "पहिरोहरु",
-        "floods": "बाढ़ीहरु",
+        "floods": " बाढीहरु ",
         "fires": "आगो",
         "volcanoes": "ज्वालामुखी",
         "quakes": "भुकम्पहरु",
@@ -435,14 +471,16 @@
                         "description": "चट्टान खस्नु"
                     },
                     "Earthflow": {
-                        "title": "अर्थफ्लो"
+                        "title": "अर्थफ्लो",
+                        "description": "अर्थफ्लो"
                     },
                     "Snow_Avalanche": {
                         "title": " हिमपहिरो",
                         "description": " हिमपहिरो"
                     },
                     "Lahar": {
-                        "title": "लहर"
+                        "title": "लहर",
+                        "description": "लहर"
                     },
                     "Complex": {
                         "title": "जटिल",
@@ -650,14 +688,34 @@
         "eo1": "नासा ई ओ-१ ",
         "modis": "नासा मोदिस",
         "alos2": "जाक्सा ए एल ओ एस - २ ",
-        "ef5": "ओक्लाहोमा  विश्वविध्यालय"
+        "ef5": "ओक्लाहोमा  विश्वविध्यालय",
+        "trmm": "NASA GSFC TRMM",
+        "gpm": "NASA GSFC GPM",
+        "ls": "ORNL Landscan",
+        "dk": "NASA GSFC Dalia Kirschbaum model",
+        "usgs": "यूएसजीएस ",
+        "noaa": "एनओअेअे",
+        "gsfc": "नासा जीएसयफसी",
+        "umd": "University of Maryland Geographic Department",
+        "chirps": "CHIRPS",
+        "rcmrd": "RCMRD",
+        "icimod": "ICIMOD"
     },
     "sensors": {
         "sar": "सार",
         "ali": "अलि ",
         "modis": "मोदिस",
         "l8": "ओ एल आइ ",
-        "dfo": "मोदिस/आइ८"
+        "dfo": "मोदिस/आइ८",
+        "alos2": "PALSAR-2",
+        "ef5": "EF5 CREST Model",
+        "trmm": "तिआरएमएम",
+        "gpm": "जिपिएम",
+        "ls": "ORNL Landscan",
+        "dk": "उपलब्ध छैन",
+        "usgs": "यूएसजीएस",
+        "avhrr": "AVHRR",
+        "viirs": "VIIRS"
     },
     "duration": {
         "hours": "%{घण्टा} घण्टा",
@@ -665,8 +723,12 @@
         "seconds": "%{सेकेन्ड} सेकेन्ड"
     },
     "formats": {
+        "geojson": "geojson",
+        "geojsongz": "geojson.gz",
         "topojson": "तोपोज्सन",
         "topojsongz": "तोपोज्सन.जिजेत",
+        "shpgz": "shp.gz",
+        "osmbz2": "osm.bz2",
         "geotiff": "जियोटिफ",
         "png": "पिएनजी",
         "jpg": "जेपीजी",
@@ -687,20 +749,25 @@
     "legend": {
         "radarsat2": {
             "title": " बाढीको नक्सा ",
+            "credits": "NASA GSFC",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "CSA/MDA"
             },
             "legend": "पानीको सतह"
         },
         "dfo": {
             "title": " बाढीको नक्सा ",
+            "credits": "Dartmouth Flood Observatory",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "DFO"
             },
             "legend": "सतह पानी"
         },
         "l8": {
             "title": " बाढी नक्सा ",
+            "credits": "नासा जिएसयफसी",
             "source": {
                 "label": "स्रोत",
                 "source": "नासा"
@@ -709,6 +776,7 @@
         },
         "eo1_ali": {
             "title": " बाढीको नक्सा ",
+            "credits": "नासा जिएसयफसी",
             "source": {
                 "label": "स्रोत",
                 "source": "नासा"
@@ -717,13 +785,25 @@
         },
         "modis": {
             "title": "बाढी नक्सा ",
+            "credits": "नासा जिएसयफसी",
             "source": {
                 "label": "स्रोत",
                 "source": "नासा"
             },
             "legend": "सतह पानी"
         },
+        "burned_areas": {
+            "title": "Pat's Burned Areas",
+            "credits": "University of Maryland",
+            "source": {
+                "label": "स्रोत",
+                "source": "UMD"
+            },
+            "legend": "जलाइएको क्षेत्र"
+        },
         "active_fires": {
+            "title": "मोदिस सक्रिय आगलागी",
+            "credits": "नासा जिएसयफसी",
             "source": {
                 "label": "स्रोत",
                 "source": "नासा"
@@ -731,15 +811,20 @@
             "legend": "सक्रिय आगलागी"
         },
         "quakes": {
+            "title": "USGS भुकम्पहरु",
+            "credits": "यूसीएसबी",
             "source": {
-                "label": "स्रोत"
-            }
+                "label": "स्रोत",
+                "source": "यूसीएसबी"
+            },
+            "legend": "7d Quakes"
         },
         "flood_forecast": {
             "title": "बाढीको पूर्वानुमान",
             "credits": "ओक्लाहोमा  विश्वविध्यालय",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "University of Oklahoma EF5 CREST"
             },
             "legend": {
                 "1m": "१ मीटर ",
@@ -753,20 +838,25 @@
         },
         "vhi": {
             "title": "वनस्पती स्वास्थ्य सूचकांक",
+            "credits": "एनओअेअे स्तार",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "एनओअेअे स्तार"
             }
         },
         "frost": {
             "title": "तुषारोको नक्सा ",
+            "credits": "नासा सर्भिर/आर्सिएमार्दी",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "सर्भिर/आर्सिएमार्दी"
             },
             "legend": {
                 "no_data": "डाटा नभएको",
                 "very_severe_frost": "धेरै गम्भीर तुषारो",
                 "severe_frost": "गम्भीर तुषारो",
                 "moderate_frost": "मध्यम तुषारो",
+                "minor_frost": "Minor Frost Pockets",
                 "no_frost": "तुषारो नभएको"
             }
         },
@@ -783,7 +873,8 @@
             "title": "हिम पानी बराबरको",
             "credits": "ओक्लाहोमा  विश्वविध्यालय",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "University of Oklahoma EF5 CREST"
             },
             "legend": {
                 "10mm": "१० मिलिमिटर",
@@ -799,14 +890,18 @@
         },
         "population_count": {
             "title": "जनसंख्या",
+            "credits": "ओकरीज नेसनल ल्याब्रोतोरी",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "ओकरीज नेसनल ल्याब्रोतोरी"
             }
         },
         "daily_precipitation": {
             "title": "दैनिक वर्षा",
+            "credits": "नासा तिआरएमएम",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "नासा जिएसयफसी तिआरएमएम"
             },
             "legend": {
                 "1mm": "१ मिलिमिटर",
@@ -817,13 +912,16 @@
                 "13mm": "१३ मिलिमिटर",
                 "21mm": "२१ मिलिमिटर",
                 "34mm": "३४ मिलिमिटर",
-                "55mm": "५५ मिलिमिटर"
+                "55mm": "५५ मिलिमिटर",
+                "89mm": "89 मिमि",
+                "144mm": "144 मिमि"
             }
         },
         "stream_flow": {
             "credits": "ओक्लाहोमा  विश्वविध्यालय",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "University of Oklahoma EF5 CREST"
             },
             "legend": {
                 "10cms": "१० सेन्टिमीटर",
@@ -839,8 +937,10 @@
         },
         "landslide_nowcast": {
             "title": "पहिरोको  तत्काल सूचक ",
+            "credits": "नासा जिएसयफसी",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "नासा जिएसयफसी"
             },
             "legend": {
                 "level_1": "पहेलो",
@@ -851,7 +951,8 @@
             "title": "माटो चिस्यान",
             "credits": "ओक्लाहोमा  विश्वविध्यालय",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "University of Oklahoma EF5 CREST"
             },
             "legend": {
                 "3pct": "३ प्रतिशत",
@@ -866,8 +967,66 @@
             }
         },
         "viirs_chla": {
+            "title": "VIIRS Chlorophyll-A",
+            "credits": "नासा जिएसयफसी",
             "source": {
-                "label": "स्रोत"
+                "label": "स्रोत",
+                "source": "नासा जिएसयफसी"
+            },
+            "legend": {
+                "1": "0.01 mg/m3",
+                "3": "0.03 mg/m3",
+                "5": "0.0५ मिलिग्राम/",
+                "10": "0.10 mg/m3",
+                "15": "0.15 mg/m3",
+                "20": "0.20 mg/m3",
+                "30": "0.30 mg/m3",
+                "50": "0.50 mg/m3",
+                "100": "1.0 mg/m3",
+                "350": "3.5 mg/m3"
+            }
+        },
+        "chirps_prelim_monthly": {
+            "title": "CHIRPS 2.0 Prelim Monthly",
+            "credits": "यूसी सान्ता बारबरा ",
+            "source": {
+                "label": "स्रोत",
+                "source": "यूसीएसबी"
+            },
+            "legend": {
+                "0": "0 मिलीमिटर",
+                "10": "10मिमि",
+                "25": "25मिमि",
+                "50": "50मिमि",
+                "100": "100मिमि",
+                "150": "150मिमि",
+                "200": "200मिमि",
+                "250": "250मिमि",
+                "300": "300मिमि",
+                "400": "400 मिमि",
+                "500": "500मिमि"
+            }
+        },
+        "chirps_prelim_dekad": {
+            "credits": "यूसी सान्ता बारबरा ",
+            "source": {
+                "label": "स्रोत",
+                "source": "यूसीएसबी"
+            },
+            "legend": {
+                "0": "0 मिलीमिटर"
+            }
+        },
+        "chirps_prelim_pentad": {
+            "credits": "यूसी सान्ता बारबरा ",
+            "source": {
+                "label": "स्रोत",
+                "source": "यूसीएसबी"
+            },
+            "legend": {
+                "0": "0 मिलीमिटर",
+                "1": "1  मिलीमिटर",
+                "5": "5 मिलीमिटर"
             }
         }
     }

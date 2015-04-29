@@ -62,6 +62,8 @@ en:
     gsfc: NASA GSFC
     umd: University of Maryland Geographic Department
     chirps: CHIRPS
+    rcmrd: RCMRD
+    icimod: ICIMOD
 
   sensors:
     sar: SAR
@@ -126,6 +128,7 @@ en:
     vhi: Vegetation Health Index
     algal_bloom: Algal Bloom
     burned_areas: Burned Areas
+    snow_cover: Snow cover
 
   filesize:
     B: B
@@ -179,7 +182,7 @@ en:
       legend: Surface Water
 
     burned_areas:
-      title: Pat's Burned Areas
+      title: Burned Areas
       credits: University of Maryland
       source: 
         label: Source
