@@ -50,7 +50,7 @@ var util 		= require('util'),
 				scale: 2,
 				fillOpacity: 0.5,
 				weight: 0.5,
-				color: '#000000'
+				color: '#a30000'
 			}
 		}
 		return json
