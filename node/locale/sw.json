@@ -578,7 +578,7 @@
             "legend": "Surface Water"
         },
         "burned_areas": {
-            "title": "Pat's Burned Areas",
+            "title": "Maeneo ya kutetekezwa",
             "credits": "Chuo kikuu ya Maryland",
             "source": {
                 "label": "Chanzo",
@@ -592,6 +592,24 @@
             "source": {
                 "label": "Chanzo",
                 "source": "NASA"
+            },
+            "legend": "Active Fires"
+        },
+        "modis_af_rcmrd": {
+            "title": "MODIS Active Fires from RCMRD",
+            "credits": "RCMRD",
+            "source": {
+                "label": "Chanzo",
+                "source": "NASA"
+            },
+            "legend": "Active Fires"
+        },
+        "modis_af_icimod": {
+            "title": "MODIS Active Fires from RCMRD",
+            "credits": "ICIMOD",
+            "source": {
+                "label": "Chanzo",
+                "source": "ICIMOD"
             },
             "legend": "Active Fires"
         },

@@ -51,7 +51,8 @@
         "drought": "खडेरी",
         "vhi": "वनस्पती स्वास्थ्य सूचकांक",
         "algal_bloom": "Algal Bloom",
-        "burned_areas": "जलाइएको क्षेत्र"
+        "burned_areas": "जलाइएको क्षेत्र",
+        "snow_cover": "हिउँले ढाकेको"
     },
     "query": {
         "query_title": "जिज्ञासा",
@@ -663,7 +664,7 @@
         "map": "नक्सा"
     },
     "stream": {
-        "displayName": "प्रकाशक बाढी सतह जल उत्पादन"
+        "displayName": "Publisher Flood Map Products"
     },
     "properties": {
         "properties": "गुणहरु",
@@ -793,7 +794,7 @@
             "legend": "सतह पानी"
         },
         "burned_areas": {
-            "title": "Pat's Burned Areas",
+            "title": "जलाइएको क्षेत्र",
             "credits": "University of Maryland",
             "source": {
                 "label": "स्रोत",
@@ -807,6 +808,24 @@
             "source": {
                 "label": "स्रोत",
                 "source": "नासा"
+            },
+            "legend": "सक्रिय आगलागी"
+        },
+        "modis_af_rcmrd": {
+            "title": "MODIS Active Fires from RCMRD",
+            "credits": "RCMRD",
+            "source": {
+                "label": "स्रोत",
+                "source": "नासा"
+            },
+            "legend": "सक्रिय आगलागी"
+        },
+        "modis_af_icimod": {
+            "title": "MODIS Active Fires from ICIMOD",
+            "credits": "ICIMOD",
+            "source": {
+                "label": "स्रोत",
+                "source": "ICIMOD"
             },
             "legend": "सक्रिय आगलागी"
         },
@@ -918,6 +937,7 @@
             }
         },
         "stream_flow": {
+            "title": "Stream Flow",
             "credits": "ओक्लाहोमा  विश्वविध्यालय",
             "source": {
                 "label": "स्रोत",
@@ -1004,20 +1024,34 @@
                 "250": "250मिमि",
                 "300": "300मिमि",
                 "400": "400 मिमि",
-                "500": "500मिमि"
+                "500": "500मिमि",
+                "600": "600mm"
             }
         },
         "chirps_prelim_dekad": {
+            "title": "CHIRPS 2.0 Prelim Dekad",
             "credits": "यूसी सान्ता बारबरा ",
             "source": {
                 "label": "स्रोत",
                 "source": "यूसीएसबी"
             },
             "legend": {
-                "0": "0 मिलीमिटर"
+                "0": "0 मिलीमिटर",
+                "1": "1mm",
+                "10": "10mm",
+                "25": "25mm",
+                "50": "50mm",
+                "75": "75mm",
+                "100": "100mm",
+                "150": "150mm",
+                "200": "200mm",
+                "250": "250mm",
+                "300": "300mm",
+                "350": "350mm"
             }
         },
         "chirps_prelim_pentad": {
+            "title": "CHIRPS 2.0 Prelim Pentad",
             "credits": "यूसी सान्ता बारबरा ",
             "source": {
                 "label": "स्रोत",
@@ -1026,7 +1060,16 @@
             "legend": {
                 "0": "0 मिलीमिटर",
                 "1": "1  मिलीमिटर",
-                "5": "5 मिलीमिटर"
+                "5": "5 मिलीमिटर",
+                "10": "10mm",
+                "15": "15mm",
+                "20": "20mm",
+                "25": "25mm",
+                "30": "30mm",
+                "35": "35mm",
+                "40": "40mm",
+                "50": "50mm",
+                "60": "60mm"
             }
         }
     }

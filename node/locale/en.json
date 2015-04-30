@@ -26,7 +26,7 @@
         "map": "map"
     },
     "stream": {
-        "displayName": "Publisher Flood Surface Water Products"
+        "displayName": "Publisher Flood Map Products"
     },
     "properties": {
         "properties": "properties",
@@ -201,6 +201,24 @@
             "source": {
                 "label": "Source",
                 "source": "NASA"
+            },
+            "legend": "Active Fires"
+        },
+        "modis_af_rcmrd": {
+            "title": "MODIS Active Fires from RCMRD",
+            "credits": "RCMRD",
+            "source": {
+                "label": "Source",
+                "source": "NASA"
+            },
+            "legend": "Active Fires"
+        },
+        "modis_af_icimod": {
+            "title": "MODIS Active Fires from ICIMOD",
+            "credits": "ICIMOD",
+            "source": {
+                "label": "Source",
+                "source": "ICIMOD"
             },
             "legend": "Active Fires"
         },
