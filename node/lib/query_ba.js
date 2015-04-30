@@ -26,7 +26,7 @@ var util 		= require('util'),
 		minzoom: 		6
 	}
 	
-	var colors 			= ["#990066"]
+	var colors 			= ["#de3710"]
 	var levels 			= [1]
 	
 	options.credits	= function(req) {
