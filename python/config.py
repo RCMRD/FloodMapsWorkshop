@@ -43,8 +43,13 @@ regions		= {
 	},
 	'd05': {
 		'name':			"Malawi",
+<<<<<<< HEAD
 		'bbox': 		[32.6690, -17.1295, 35.9204, -9.3647 ],
 		'bucket':		"rcmrd-products",
+=======
+		'bbox': 		[32.717, -17.150, 37.0, -5 ],
+		'bucket':		"ojo-d5",
+>>>>>>> ebc5246fbca52f2ee181a07663b859b2f6f59532
 		'thn_zoom': 	6
 	},
 	'd06': {
@@ -54,10 +59,18 @@ regions		= {
 		'thn_zoom': 	6
 	},
 	'd07': {
+<<<<<<< HEAD
 		'name':			"Eafrica",
 		'bbox': 		[21.77, -12.27, 51.09, 23.95 ],
 		'bucket':		"rcmrd-ea",
 		'thn_zoom': 	6
+=======
+		'name':			"East Africa",
+		'bbox': 		[21.77, -12.27, 51.09, 23.95 ],
+		'bucket':		"ojo-d7",
+		'thn_zoom': 	5
+		
+>>>>>>> ebc5246fbca52f2ee181a07663b859b2f6f59532
 	}
 }
 	

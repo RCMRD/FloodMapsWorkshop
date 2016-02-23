@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var rw = require("../");
+
+var readFixed = rw.fixedReader(process.argv[2] || "/dev/stdin"),
+    write = rw.writer(process.argv[3] || "/dev/stdout");
+
+(function readNextChunk() {
+  readFixed(12, function(error, chunk) {
+    if (error) throw error;
+    write(chunk, function(error) {
+      if (error) throw error;
+      if (chunk != null) setImmediate(readNextChunk);
+    });
+  });
+})();

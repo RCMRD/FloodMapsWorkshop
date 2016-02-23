@@ -83,6 +83,7 @@ def process_url( mydir, url, ymd, bbox, zoom, s3_bucket, s3_folder ):
 		lat		= coords[1]
 		if inbbox(bbox, lat, lon):
 			qtime = int(f['properties']['time'])/1000
+<<<<<<< HEAD
 
 			newp = {}
 			newp['title']  = f['properties']['title']
@@ -90,6 +91,15 @@ def process_url( mydir, url, ymd, bbox, zoom, s3_bucket, s3_folder ):
 			newp['mag']  = f['properties']['mag']
 			newp['date']  = time.ctime(qtime)
 			newp['place']  = f['properties']['place']
+=======
+			
+			newp = {}
+			newp['title']	= f['properties']['title']
+			newp['mag']		= f['properties']['mag']
+			newp['date']	= time.ctime(qtime)
+			newp['place']	= f['properties']['place']
+			
+>>>>>>> ebc5246fbca52f2ee181a07663b859b2f6f59532
 			#f['properties']['date'] = time.ctime(qtime)
 			f['properties'] = newp
 			results['features'].append(f)

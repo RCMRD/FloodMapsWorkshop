@@ -13,7 +13,8 @@
 #
 
 import numpy, sys, os, inspect, io
-import urllib
+import urllib, urllib2
+import requests
 import csv
 import json
 
@@ -34,8 +35,12 @@ active_fires_urls = {
 	"d03": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Central_America_24h.csv",
 	"d04": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv",
 	"d05": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Southern_Africa_24h.csv",
+<<<<<<< HEAD
 	"d06": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/South_Asia_24h.csv",
 	"d07": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Northern_and_Central_Africa_24h.csv"
+=======
+	"d06": "https://firms.modaps.eosdis.nasa.gov/active_fire/text/South_Asia_24h.csv"
+>>>>>>> ebc5246fbca52f2ee181a07663b859b2f6f59532
 }
 
 def execute( cmd ):
@@ -99,8 +104,16 @@ def process_url( mydir, url, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	thn_image			= os.path.join(os.path.join(mydir,  "modis_af." + ymd + '_thn.jpg'))
 	
 	if force or not os.path.exists(csv_filename):
+		print "retrieving:", url
 		urllib.urlretrieve(url, csv_filename)
+		#request 	= urllib2.Request(url, csv_filename)
+		#data	 	= urllib2.urlopen(request).read()
+		#data = requests.get(url, verify=False)
 		
+		
+		print data
+		sys.exit(-1)
+
 	if force or not os.path.exists(geojson_filename):
 		csv_to_geojson(csv_filename, geojson_filename, bbox)
 		
@@ -140,7 +153,7 @@ def process_url( mydir, url, ymd, bbox, zoom, s3_bucket, s3_folder ):
 	file_list = [ tif_filename, geojson_filename, geojsongz_filename, thn_image ]
 	CopyToS3( s3_bucket, s3_folder, file_list, force, verbose )
 
-#
+# python modis-active-fires.py --region d04 -f -v
 # ======================================================================
 #
 if __name__ == '__main__':
@@ -170,7 +183,9 @@ if __name__ == '__main__':
 	mydir		= os.path.join(config.MODIS_ACTIVE_FIRES_DIR, str(year),doy, regionName)
 	if not os.path.exists(mydir):            
 		os.makedirs(mydir)
-
+	
+	print mydir
+		
 	# get last 24 hrs
 	# url_7day 	= "https://firms.modaps.eosdis.nasa.gov/active_fire/text/Central_America_7d.csv"
 	url_24hr 	= active_fires_urls[regionName]
